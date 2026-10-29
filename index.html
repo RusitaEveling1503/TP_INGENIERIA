@@ -1,19 +1,156 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <title>JUSTIDATA.SOLUTIONS</title>
-  </head>
-  <body>
-    <header>
-      
-    </header>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Búsqueda de Pericias</title>
+    </head>
     <body>
-      
+        <main>
+            <header>
+                <h1>Sistema de Gestión y Seguimiento de Pericias</h1>
+
+                <nav aria-label="Menú principal">
+                    <ul>
+                        <li><a href="inicio.html">Inicio</a></li>
+                        <li><a href="carga_pericia.html">Carga de pericia</a></li>
+                        <li><a href="busqueda_pericias.html">Búsqueda de pericias</a></li>
+                        <li><a href="informes.html">Informes</a></li>
+                    </ul>
+                </nav>
+
+                <section>
+                    <p>Usuario: Operador administrativo</p>
+                    <a href="perfil.html">Mi perfil</a>
+                    <a href="inicio.html">Cerrar sesión</a>
+                </section>
+                        <h1>Búsqueda de Pericias</h1>
+                        <p>
+                            Consulte las pericias registradas utilizando los filtros disponibles.
+                        </p>
+            </header>
+
+
+
+            <section>
+                <h2>Filtros de búsqueda</h2>
+
+                <form action="#" method="get">
+                    <div>
+                        <label for="numeroPericia">Número de pericia</label>
+                        <input
+                            type="text"
+                            id="numeroPericia"
+                            name="numeroPericia"
+                            placeholder="Ingrese el número">
+                    </div>
+
+                    <div>
+                        <label for="organismo">Organismo solicitante</label>
+                        <input
+                            type="text"
+                            id="organismo"
+                            name="organismo"
+                            placeholder="Ingrese el organismo">
+                    </div>
+
+                    <div>
+                        <label for="perito">Perito participante</label>
+                        <input
+                            type="text"
+                            id="perito"
+                            name="perito"
+                            placeholder="Ingrese el nombre o apellido del perito">
+                    </div>
+
+                    <div>
+                        <label for="tipoPericia">Tipo de pericia</label>
+                        <select id="tipoPericia" name="tipoPericia">
+                            <option value="">Todos los tipos</option>
+                            <option value="medica">Médica</option>
+                            <option value="psicologica">Psicológica</option>
+                            <option value="informatica">Informática</option>
+                            <option value="contable">Contable</option>
+                            <option value="accidentologica">Accidentológica</option>
+                            <option value="documentologica">Documentológica</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="fechaSolicitud">Fecha de solicitud</label>
+                        <input
+                            type="date"
+                            id="fechaSolicitud"
+                            name="fechaSolicitud">
+                    </div>
+
+                    <div>
+                        <label for="estado">Estado de la pericia</label>
+                        <select id="estado" name="estado">
+                            <option value="">Todos los estados</option>
+                            <option value="solicitada">Solicitada</option>
+                            <option value="en_analisis">En análisis</option>
+                            <option value="en_evaluacion">En proceso de evaluación</option>
+                            <option value="en_informe">En elaboración de informe</option>
+                            <option value="finalizada">Finalizada</option>
+                            <option value="suspendida">Suspendida</option>
+                            <option value="cancelada">Cancelada</option>
+                            <option value="impugnada">Impugnada</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <button type="submit">Buscar</button>
+                        <button type="reset">Limpiar filtros</button>
+                    </div>
+                </form>
+            </section>
+
+            <section>
+                <h2>Resultados de la búsqueda</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">N.º de pericia</th>
+                            <th scope="col">Organismo</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Fecha de solicitud</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>00125</td>
+                            <td>Juzgado Civil N.º 2</td>
+                            <td>Informática</td>
+                            <td>10/08/2026</td>
+                            <td>En análisis</td>
+                            <td><a href="[link_detalle_pericia]">Ver</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>00048</td>
+                            <td>Fiscalía N.º 1</td>
+                            <td>Documentológica</td>
+                            <td>15/08/2026</td>
+                            <td>Solicitada</td>
+                            <td><a href="[link_detalle_pericia]">Ver</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>00125</td>
+                            <td>Fiscalía N.º 3</td>
+                            <td>Psicológica</td>
+                            <td>20/08/2026</td>
+                            <td>Finalizada</td>
+                            <td><a href="[link_detalle_pericia]">Ver</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
     </body>
-    <footer>
-      
-    </footer>
-  </body>
 </html>
