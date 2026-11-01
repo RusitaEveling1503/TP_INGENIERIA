@@ -266,113 +266,20 @@
                         </table>
                     </div>
                 </section>
-
-                <section class="card mb-4">
-                    <div class="card-header">Formulario de Carga de Nuevo Informe</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Número de Pericia</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="col-md-4">
-                                <label>Organismo</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="col-md-4">
-                                <label>Expediente</label>
-                                <input class="form-control">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Tipo de Pericia</label>
-                                <select class="form-select"></select>
-                            </div>
-                            <div class="col-md-4">
-                                <label>Perito Responsable</label>
-                                <select class="form-select"></select>
-                            </div>
-                            <div class="col-md-4">
-                                <label>Fecha</label>
-                                <input type="date" class="form-control">
-                            </div>
-                        </div>
-                        <br>
-                        <label>Descripción del Informe</label>
-                        <textarea class="form-control" rows="4"></textarea>
-                        <br>
-                        <label>Resultados / Hallazgos</label>
-                        <textarea class="form-control" rows="4"></textarea>
-                        <br>
-                        <div class="btn-actions">
-                            <button class="btn btn-success">Registrar Informe</button>
-                            <button class="btn btn-secondary">Cancelar</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="card mb-4">
-                    <div class="card-header">Búsqueda de Informes</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input class="form-control" placeholder="N° Pericia">
-                            </div>
-                            <div class="col-md-3">
-                                <input class="form-control" placeholder="Organismo">
-                            </div>
-                            <div class="col-md-3">
-                                <input class="form-control" placeholder="Perito">
-                            </div>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="btn-actions">
-                            <button class="btn btn-primary">Buscar</button>
-                            <button class="btn btn-warning">Limpiar</button>
-                        </div>
-                        <hr>
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>N° Pericia</th>
-                                    <th>Organismo</th>
-                                    <th>Tipo</th>
-                                    <th>Estado</th>
-                                    <th>Perito</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2026-001</td>
-                                    <td>Juzgado Civil</td>
-                                    <td>Psicológica</td>
-                                    <td>En análisis</td>
-                                    <td>Juan Pérez</td>
-                                    <td><button class="btn btn-sm btn-info text-white">Ver</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
                 <section class="card mb-4">
                     <div class="card-header">Informe Completo de Pericia</div>
                     <div class="card-body">
                         <h5>Datos Generales</h5>
-                        <ul>
-                            <li>Número de Pericia</li>
-                            <li>Organismo Solicitante</li>
-                            <li>Expediente</li>
-                            <li>Área Técnica Responsable</li>
-                            <li>Estado Actual</li>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item"><strong>Número de Pericia:</strong> 2026-001</li>
+                            <li class="list-group-item"><strong>Organismo Solicitante:</strong> Juzgado Civil N° 2</li>
+                            <li class="list-group-item"><strong>Expediente:</strong> EX-2026-1184</li>
+                            <li class="list-group-item"><strong>Área Técnica Responsable:</strong> División de Pericias Informáticas</li>
+                            <li class="list-group-item"><strong>Estado Actual:</strong> En análisis</li>
+                            <li class="list-group-item"><strong>Fecha de Solicitud:</strong> 10/08/2026</li>
+                            <li class="list-group-item"><strong>Tipo de Pericia:</strong> Informática</li>
                         </ul>
-
+                
                         <h5>Participantes</h5>
                         <table class="table table-bordered">
                             <thead>
@@ -383,8 +290,28 @@
                                     <th>Especialidad</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20-45678912-9</td>
+                                    <td>María Gómez</td>
+                                    <td>Solicitante</td>
+                                    <td>Juzgado Civil</td>
+                                </tr>
+                                <tr>
+                                    <td>24-11223344-5</td>
+                                    <td>Dr. Alejandro Ríos</td>
+                                    <td>Perito responsable</td>
+                                    <td>Informática Forense</td>
+                                </tr>
+                                <tr>
+                                    <td>27-99887766-1</td>
+                                    <td>Lucía Pérez</td>
+                                    <td>Auxiliar técnico</td>
+                                    <td>Relevamiento digital</td>
+                                </tr>
+                            </tbody>
                         </table>
-
+                
                         <h5>Movimientos</h5>
                         <table class="table table-bordered">
                             <thead>
@@ -395,8 +322,34 @@
                                     <th>Usuario</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10/08/2026</td>
+                                    <td>Solicitud</td>
+                                    <td>Se registra la pericia solicitada por el organismo.</td>
+                                    <td>Operador administrativo</td>
+                                </tr>
+                                <tr>
+                                    <td>12/08/2026</td>
+                                    <td>Asignación</td>
+                                    <td>Se asigna la pericia al perito Dr. Alejandro Ríos.</td>
+                                    <td>Coordinador</td>
+                                </tr>
+                                <tr>
+                                    <td>15/08/2026</td>
+                                    <td>Relevamiento</td>
+                                    <td>Se analiza la información digital aportada por el expediente.</td>
+                                    <td>Dr. Alejandro Ríos</td>
+                                </tr>
+                                <tr>
+                                    <td>18/08/2026</td>
+                                    <td>Revisión</td>
+                                    <td>Se solicita ampliación de documentación por parte del organismo.</td>
+                                    <td>Jefe de área</td>
+                                </tr>
+                            </tbody>
                         </table>
-
+                
                         <h5>Actividades Programadas</h5>
                         <table class="table table-bordered">
                             <thead>
@@ -407,22 +360,43 @@
                                     <th>Estado</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22/08/2026</td>
+                                    <td>09:00</td>
+                                    <td>Oficina Central de Pericias</td>
+                                    <td>Programada</td>
+                                </tr>
+                                <tr>
+                                    <td>27/08/2026</td>
+                                    <td>14:30</td>
+                                    <td>Laboratorio forense</td>
+                                    <td>Pendiente</td>
+                                </tr>
+                                <tr>
+                                    <td>30/08/2026</td>
+                                    <td>10:00</td>
+                                    <td>Virtual</td>
+                                    <td>Confirmada</td>
+                                </tr>
+                            </tbody>
                         </table>
-
+                
                         <h5>Liquidación y Honorarios</h5>
-                        <ul>
-                            <li>Arancel Base</li>
-                            <li>Modalidad de Pago</li>
-                            <li>Estado del Pago</li>
-                            <li>Honorarios</li>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item"><strong>Arancel Base:</strong> $45.000</li>
+                            <li class="list-group-item"><strong>Modalidad de Pago:</strong> Factura mensual</li>
+                            <li class="list-group-item"><strong>Estado del Pago:</strong> Pendiente</li>
+                            <li class="list-group-item"><strong>Honorarios:</strong> $58.500 (incluye gastos de análisis y pericia complementaria)</li>
                         </ul>
-
+                
                         <div class="btn-actions">
                             <button class="btn btn-danger">Exportar PDF</button>
                             <button class="btn btn-success">Imprimir</button>
                         </div>
                     </div>
                 </section>
+
             </main>
         </div>
     </div>
