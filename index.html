@@ -103,19 +103,16 @@
             <aside class="col-md-2 sidebar p-3">
                 <h4>JustiData</h4>
                 <hr>
-                <a href="#">Inicio</a>
-                <a href="#">Pericias</a>
-                <a href="#">Personas</a>
-                <a href="#">Actividades</a>
-                <a href="#">Documentación</a>
-                <a href="#">Aranceles</a>
-                <a href="#">Reportes</a>
-                <a href="#">Usuarios</a>
+                <a href="inicio">Inicio</a>
+                <a href="formulario">CargarPericia</a>
+                <a href="busqueda">Buscador</a>
+                <a href="informe">Informe</a>
+                
             </aside>
 
             <main class="col-md-10 p-4">
                 <header class="topbar">
-                    <h1>Sistema de Gestión y Seguimiento de Pericias</h1>
+                    <h1 id="inicio">Sistema de Gestión y Seguimiento de Pericias</h1>
 
                     <nav aria-label="Menú principal" class="nav-links">
                         <a href="inicio.html">Inicio</a>
@@ -135,7 +132,7 @@
 
                 <p class="mb-4">Basado en el DER y Modelo Relacional del Trabajo Práctico.</p>
                 <section class="card mb-4">
-                    <div class="card-header">Formulario de Carga de Nuevo Informe</div>
+                    <div class="card-header" id="formulario">Formulario de Carga de Nuevo Informe</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -180,7 +177,7 @@
                     </div>
                 </section>
 
-                <section class="card mb-4">
+                <section class="card mb-4" id="busqueda">
                     <div class="card-header">Búsqueda de Pericias</div>
                     <div class="card-body search-form">
                         <p class="mb-4">Consulte las pericias registradas utilizando los filtros disponibles.</p>
@@ -311,8 +308,9 @@
                         </table>
                     </div>
                 </section>
+                
                 <section class="card mb-4">
-                    <div class="card-header">Informe Completo de Pericia</div>
+                    <div class="card-header" id="informe">Informe Completo de Pericia</div>
                     <div class="card-body">
                         <h5>Datos Generales</h5>
                         <ul class="list-group list-group-flush mb-4">
