@@ -159,47 +159,107 @@
                 <section class="card mb-4">
                     <div class="card-header" id="formulario">Formulario de Carga de Nuevo Informe</div>
                     <div class="card-body">
-                        <!--Contenido del formulario-->
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Número de Pericia</label>
-                                <input class="form-control">
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <h5 class="mb-3">Identificación del expediente</h5>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-4">
+                                    <label for="numeroExpediente" class="form-label">Número de expediente *</label>
+                                    <input type="text" id="numeroExpediente" name="expediente" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="caratula" class="form-label">Carátula del expediente</label>
+                                    <input type="text" id="caratula" name="caratula" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="numeroPericiaCarga" class="form-label">Número de pericia</label>
+                                    <input type="text" id="numeroPericiaCarga" name="numero_pericia" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="organismoCarga" class="form-label">Solicitante/Juzgado/Organismo *</label>
+                                    <input type="text" id="organismoCarga" name="organismo" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="partes" class="form-label">Partes involucradas</label>
+                                    <input type="text" id="partes" name="partes" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fechaPericia" class="form-label">Fecha de realización de la pericia *</label>
+                                    <input type="date" id="fechaPericia" name="fecha_pericia" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fechaInforme" class="form-label">Fecha del informe</label>
+                                    <input type="date" id="fechaInforme" name="fecha_informe" class="form-control">
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <label>Organismo</label>
-                                <input class="form-control">
+
+                            <h5 class="mb-3">Datos de la pericia</h5>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label for="peritoCarga" class="form-label">Perito responsable *</label>
+                                    <input type="text" id="peritoCarga" name="perito" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="matricula" class="form-label">Matrícula o acreditación</label>
+                                    <input type="text" id="matricula" name="matricula" class="form-control">
+                                </div>
+                                <div class="col-12">
+                                    <label for="tipoPericiaCarga" class="form-label">Tipo de pericia *</label>
+                                    <select id="tipoPericiaCarga" name="tipo_pericia" class="form-select" required>
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="medica">Médica</option>
+                                        <option value="psicologica">Psicológica</option>
+                                        <option value="informatica">Informática</option>
+                                        <option value="contable">Contable</option>
+                                        <option value="accidentologica">Accidentológica</option>
+                                        <option value="documentologica">Documentológica</option>
+                                        <option value="otra">Otra</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="objetoPericia" class="form-label">Objeto y puntos solicitados *</label>
+                                    <textarea id="objetoPericia" name="objeto" class="form-control" rows="3" placeholder="Indique qué se solicita analizar y qué preguntas debe responder la pericia..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="materialAnalizado" class="form-label">Material o documentación analizada</label>
+                                    <textarea id="materialAnalizado" name="material" class="form-control" rows="3" placeholder="Describa los elementos recibidos y su procedencia..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="metodologia" class="form-label">Metodología utilizada</label>
+                                    <textarea id="metodologia" name="metodologia" class="form-control" rows="3" placeholder="Describa brevemente los procedimientos o técnicas aplicados..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="resultados" class="form-label">Resultados / Hallazgos</label>
+                                    <textarea id="resultados" name="resultados" class="form-control" rows="3"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="conclusiones" class="form-label">Conclusiones</label>
+                                    <textarea id="conclusiones" name="conclusiones" class="form-control" rows="3"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="observaciones" class="form-label">Observaciones</label>
+                                    <textarea id="observaciones" name="observaciones" class="form-control" rows="3"></textarea>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <label>Expediente</label>
-                                <input class="form-control">
+
+                            <h5 class="mb-3">Documentación</h5>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="archivoInforme" class="form-label">Adjuntar informe pericial *</label>
+                                    <input type="file" id="archivoInforme" name="archivo" class="form-control" accept=".pdf,.doc,.docx" required>
+                                    <div class="form-text">Formatos admitidos: PDF, DOC o DOCX.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="anexosInforme" class="form-label">Adjuntar anexos o evidencias adicionales</label>
+                                    <input type="file" id="anexosInforme" name="anexos" class="form-control" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+                                    <div class="form-text">Opcional. Puede seleccionar más de un archivo.</div>
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Tipo de Pericia</label>
-                                <select class="form-select"></select>
+
+                            <div class="btn-actions mt-4">
+                                <button type="reset" class="btn btn-secondary">Limpiar</button>
+                                <button type="submit" class="btn btn-success">Registrar Informe</button>
                             </div>
-                            <div class="col-md-4">
-                                <label>Perito Responsable</label>
-                                <select class="form-select"></select>
-                            </div>
-                            <div class="col-md-4">
-                                <label>Fecha</label>
-                                <input type="date" class="form-control">
-                            </div>
-                        </div>
-                        <br>
-                        <label>Descripción del Informe</label>
-                        <textarea class="form-control" rows="4"></textarea>
-                        <br>
-                        <label>Resultados / Hallazgos</label>
-                        <textarea class="form-control" rows="4"></textarea>
-                        <br>
-                        <div class="btn-actions">
-                            <button class="btn btn-success">Registrar Informe</button>
-                            <button class="btn btn-secondary">Cancelar</button>
-                        </div>
+                        </form>
                     </div>
                 </section>
 
