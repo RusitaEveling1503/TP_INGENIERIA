@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Título que se muestra en la pestaña del navegador -->
     <title>Sistema de Gestión y Seguimiento de Pericias</title>
+    <!-- Hoja de estilos de Bootstrap para usar componentes y grillas responsivas -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <!--Hoja de estilos del proyecto-->
+    <link href="style.css" rel="stylesheet"> 
     <style>
+        /*Estilos generales de la página */
         body {
             background: #f4f6f9;
             font-family: Arial, sans-serif;
         }
 
+        /*.sidebar (barra lateral de navegación) y sus estilos*/
         .sidebar {
             background: #1f3a5f;
             min-height: 100vh;
             color: white;
         }
 
+        /*.sidebar  a (enlaces que están dentro de la barra lateral de navegación) y sus estilos*/
         .sidebar a {
             color: white;
             text-decoration: none;
@@ -27,16 +33,19 @@
             margin-bottom: 6px;
         }
 
+        /* Efecto visual al pasar el mouse sobre los enlaces que se encuentran en la barra lateral */
         .sidebar a:hover {
             background: #294b75;
         }
 
+        /* Estilos del encabezado de los bloques de contenido */
         .card-header {
             background: #0d6efd;
             color: white;
             font-weight: 600;
         }
 
+        /* Estilos de la barra superior con el título y datos del usuario*/
         .topbar {
             background: #ffffff;
             border-bottom: 1px solid #dfe3e8;
@@ -45,11 +54,13 @@
             border-radius: 10px;
         }
 
+        /*Estilos del título principal dentro de la barra superior*/
         .topbar h1 {
             margin: 0;
             font-size: 2rem;
         }
 
+        /* Estilos del contenedor que agrupa la información del usuario y sus botones */
         .user-box {
             display: flex;
             align-items: center;
@@ -59,6 +70,7 @@
             margin-top: 15px;
         }
 
+        /* Estilos de la lista de enlaces horizontales o de navegación secundaria*/
         .nav-links {
             display: flex;
             flex-wrap: wrap;
@@ -66,30 +78,37 @@
             margin-top: 14px;
         }
 
+        /* Enlaces de navegación secundaria dentro del contenedor .nav-links */
         .nav-links a {
             color: #1f3a5f;
             text-decoration: none;
             font-weight: 600;
         }
 
+        /* Efecto visual al pasar el mouse sobre los enlaces de navegación secundaria*/
         .nav-links a:hover {
             text-decoration: underline;
         }
 
+        /* Estilo de formulario de búsqueda con separación entre campos */
         .search-form .row > div {
             margin-bottom: 15px;
         }
 
+
+        /* Estilos de las etiquetas de los campos dentro del formulario de búsqueda */
         .search-form label {
             font-weight: 600;
             margin-bottom: 8px;
             display: block;
         }
 
+        /* Estilo de las tablas */
         .table th {
             background-color: #edf2ff;
         }
 
+        /*Estilos del contenedor que organiza los botones de acción de separación*/
         .btn-actions {
             display: flex;
             flex-wrap: wrap;
@@ -98,11 +117,14 @@
     </style>
 </head>
 <body>
+    <!--Contenedr principal del sistema-->
     <div class="container-fluid">
         <div class="row">
+            <!--Barra lateral de navegación-->
             <aside class="col-md-2 sidebar p-3">
                 <h4>JustiData</h4>
                 <hr>
+                <!-- Enlaces para movimiento entre secciones de la misma página -->
                 <a href="#inicio">Inicio</a>
                 <a href="#formulario">CargarPericia</a>
                 <a href="#busqueda">Buscador</a>
@@ -110,6 +132,7 @@
                 
             </aside>
 
+            <!--Área principal de contenido-->
             <main class="col-md-10 p-4">
                 <header class="topbar">
                     <h1 id="inicio">Sistema de Gestión y Seguimiento de Pericias</h1>
@@ -121,6 +144,7 @@
                         <a href="informes.html">Informes</a>
                     </nav>  -->
 
+                    <!--Bloque con información del usuario y botones de acción-->
                     <div class="user-box">
                         <p class="mb-0">Usuario: Operador administrativo</p>
                         <div class="btn-actions">
@@ -131,9 +155,11 @@
                 </header>
 
                 <p class="mb-4">Basado en el DER y Modelo Relacional del Trabajo Práctico.</p>
+                <!--Sección del formulario para registrar una nueva pericia-->
                 <section class="card mb-4">
                     <div class="card-header" id="formulario">Formulario de Carga de Nuevo Informe</div>
                     <div class="card-body">
+                        <!--Contenido del formulario-->
                         <div class="row">
                             <div class="col-md-4">
                                 <label>Número de Pericia</label>
@@ -177,9 +203,11 @@
                     </div>
                 </section>
 
+                <!--Sección de búsqueda de pericias-->
                 <section class="card mb-4" id="busqueda">
                     <div class="card-header">Búsqueda de Pericias</div>
                     <div class="card-body search-form">
+                        <!--Filtros para búsqueda de pericias según distintos criterios-->
                         <p class="mb-4">Consulte las pericias registradas utilizando los filtros disponibles.</p>
 
                         <form action="#" method="get">
@@ -263,9 +291,11 @@
                     </div>
                 </section>
 
+                <!--Sección para los resultados de búsqueda en tabla-->
                 <section class="card mb-4">
                     <div class="card-header">Resultados de la búsqueda</div>
                     <div class="card-body">
+                        <!--Tabla con listado de pericias encontradas para la búsqueda realizada-->
                         <table class="table table-striped table-bordered align-middle">
                             <thead>
                                 <tr>
@@ -308,11 +338,13 @@
                         </table>
                     </div>
                 </section>
-                
+
+                <!--Sección con el informw detallado de una pericia-->
                 <section class="card mb-4">
                     <div class="card-header" id="informe">Informe Completo de Pericia</div>
                     <div class="card-body">
                         <h5>Datos Generales</h5>
+                        <!--Información detallada de la pericia-->
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item"><strong>Número de Pericia:</strong> 2026-001</li>
                             <li class="list-group-item"><strong>Organismo Solicitante:</strong> Juzgado Civil N° 2</li>
@@ -322,8 +354,9 @@
                             <li class="list-group-item"><strong>Fecha de Solicitud:</strong> 10/08/2026</li>
                             <li class="list-group-item"><strong>Tipo de Pericia:</strong> Informática</li>
                         </ul>
-                
+
                         <h5>Participantes</h5>
+                        <!--Tabla para los datos de los participantes en las pericias-->
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -354,8 +387,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                
+                        
                         <h5>Movimientos</h5>
+                        <!-- Tabla para los movimientos-->
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -394,6 +428,8 @@
                         </table>
                 
                         <h5>Actividades Programadas</h5>
+                        <!--Tabla para las actividades programadas, que permite consultar las tareas previstas 
+                        para la pericia, sus fechas, responsables y estados. -->
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -426,13 +462,15 @@
                         </table>
                 
                         <h5>Liquidación y Honorarios</h5>
+                        <!--Información de arancel, modalidad de pago, estado del pago y honorarios-->
                         <ul class="list-group list-group-flush mb-4">
                             <li class="list-group-item"><strong>Arancel Base:</strong> $45.000</li>
                             <li class="list-group-item"><strong>Modalidad de Pago:</strong> Factura mensual</li>
                             <li class="list-group-item"><strong>Estado del Pago:</strong> Pendiente</li>
                             <li class="list-group-item"><strong>Honorarios:</strong> $58.500 (incluye gastos de análisis y pericia complementaria)</li>
                         </ul>
-                
+
+                        <!--Botones de acción finales para exportar el informe como PDF o imprimirlo-->
                         <div class="btn-actions">
                             <button class="btn btn-danger">Exportar PDF</button>
                             <button class="btn btn-success">Imprimir</button>
