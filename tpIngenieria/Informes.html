@@ -79,10 +79,6 @@
                     <h1 class="h2 mb-0">Sistema de Gestión y Seguimiento de Pericias</h1>
                     <div class="user-box">
                         <p class="mb-0">Usuario: Operador administrativo</p>
-                        <div class="btn-actions">
-                            <a href="perfil.html" class="btn btn-sm btn-outline-primary">Mi perfil</a>
-                            <a href="inicio.html" class="btn btn-sm btn-outline-secondary">Cerrar sesión</a>
-                        </div>
                     </div>
                 </header>
 
@@ -105,12 +101,44 @@
                                     <input type="text" id="numeroPericiaCarga" name="numero_pericia" class="form-control">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="organismoCarga" class="form-label">Solicitante/Juzgado/Organismo *</label>
-                                    <input type="text" id="organismoCarga" name="organismo" class="form-control" required>
+                                    <label for="solicitante" class="form-label">Tipo de solicitante *</label>
+                                    <select id="solicitante" name="solicitante" class="form-select" required>
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="individuo">Individuo</option>
+                                        <option value="juzgado">Juzgado</option>
+                                        <option value="organizacion">Organización</option>
+                                    </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="partes" class="form-label">Partes involucradas</label>
-                                    <input type="text" id="partes" name="partes" class="form-control">
+                                <div class="col-12">
+                                    <h6 class="mb-3 fw-bold">Partes involucradas</h6>
+                                    <div id="partesContainer" aria-live="polite">
+                                        <div class="parte-row row g-3 align-items-end mb-3">
+                                            <div class="col-lg-2">
+                                                <label for="parteTipo1" class="form-label parte-type-label">Tipo</label>
+                                                <select id="parteTipo1" name="partes[0][tipo]" class="form-select parte-type">
+                                                    <option value="">Seleccione</option>
+                                                    <option value="persona">Persona</option>
+                                                    <option value="empresa">Empresa</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <label for="parteNombre1" class="form-label parte-label">Nombre</label>
+                                                <input type="text" id="parteNombre1" name="partes[0][nombre]" class="form-control parte-name">
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <label for="parteRol1" class="form-label parte-role-label">Rol</label>
+                                                <input type="text" id="parteRol1" name="partes[0][rol]" class="form-control parte-role">
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <label for="parteCredencial1" class="form-label parte-credential-label">Credencial</label>
+                                                <input type="text" id="parteCredencial1" name="partes[0][credencial]" class="form-control parte-credential">
+                                            </div>
+                                            <div class="col-lg-2 d-grid">
+                                                <button type="button" class="btn btn-outline-danger" data-remove-parte disabled>Quitar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="agregarParte" class="btn btn-outline-primary">Agregar parte</button>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="fechaPericia" class="form-label">Fecha de realización de la pericia *</label>
@@ -122,15 +150,54 @@
                                 </div>
                             </div>
 
+                            <template id="parteTemplate">
+                                <div class="parte-row row g-3 align-items-end mb-3">
+                                    <div class="col-lg-2">
+                                        <label class="form-label parte-type-label">Tipo</label>
+                                        <select class="form-select parte-type">
+                                            <option value="">Seleccione</option>
+                                            <option value="persona">Persona</option>
+                                            <option value="empresa">Empresa</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="form-label parte-label">Nombre</label>
+                                        <input type="text" class="form-control parte-name">
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="form-label parte-role-label">Rol</label>
+                                        <input type="text" class="form-control parte-role">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="form-label parte-credential-label">Credencial</label>
+                                        <input type="text" class="form-control parte-credential">
+                                    </div>
+                                    <div class="col-lg-2 d-grid">
+                                        <button type="button" class="btn btn-outline-danger" data-remove-parte>Quitar</button>
+                                    </div>
+                                </div>
+                            </template>
+
                             <h5 class="mb-3">Datos de la pericia</h5>
                             <div class="row g-3 mb-4">
-                                <div class="col-md-6">
-                                    <label for="peritoCarga" class="form-label">Perito responsable *</label>
-                                    <input type="text" id="peritoCarga" name="perito" class="form-control" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="matricula" class="form-label">Matrícula o acreditación</label>
-                                    <input type="text" id="matricula" name="matricula" class="form-control">
+                                <div class="col-12">
+                                    <h6 class="mb-3 fw-bold">Peritos responsables</h6>
+                                    <div id="peritosContainer" aria-live="polite">
+                                        <div class="perito-row row g-3 align-items-end mb-3">
+                                            <div class="col-md-5">
+                                                <label for="peritoNombre1" class="form-label perito-label">Perito responsable 1 *</label>
+                                                <input type="text" id="peritoNombre1" name="peritos[0][nombre]" class="form-control perito-name" required>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label for="matriculaPerito1" class="form-label matricula-label">Matrícula o acreditación</label>
+                                                <input type="text" id="matriculaPerito1" name="peritos[0][matricula]" class="form-control perito-registration">
+                                            </div>
+                                            <div class="col-md-2 d-grid">
+                                                <button type="button" class="btn btn-outline-danger" data-remove-perito disabled>Quitar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="agregarPerito" class="btn btn-outline-primary">Agregar perito</button>
                                 </div>
                                 <div class="col-12">
                                     <label for="tipoPericiaCarga" class="form-label">Tipo de pericia *</label>
@@ -171,6 +238,22 @@
                                 </div>
                             </div>
 
+                            <template id="peritoTemplate">
+                                <div class="perito-row row g-3 align-items-end mb-3">
+                                    <div class="col-md-5">
+                                        <label class="form-label perito-label">Perito responsable *</label>
+                                        <input type="text" class="form-control perito-name" required>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label class="form-label matricula-label">Matrícula o acreditación</label>
+                                        <input type="text" class="form-control perito-registration">
+                                    </div>
+                                    <div class="col-md-2 d-grid">
+                                        <button type="button" class="btn btn-outline-danger" data-remove-perito>Quitar</button>
+                                    </div>
+                                </div>
+                            </template>
+
                             <h5 class="mb-3">Documentación</h5>
                             <div class="row g-3">
                                 <div class="col-12">
@@ -195,5 +278,103 @@
             </main>
         </div>
     </div>
+    <script>
+        const peritosContainer = document.getElementById('peritosContainer');
+        const peritoTemplate = document.getElementById('peritoTemplate');
+        const agregarPeritoButton = document.getElementById('agregarPerito');
+        const partesContainer = document.getElementById('partesContainer');
+        const parteTemplate = document.getElementById('parteTemplate');
+        const agregarParteButton = document.getElementById('agregarParte');
+
+        function actualizarPartes() {
+            const filas = partesContainer.querySelectorAll('.parte-row');
+
+            filas.forEach((fila, index) => {
+                const numero = index + 1;
+                const tipo = fila.querySelector('.parte-type');
+                const nombre = fila.querySelector('.parte-name');
+                const rol = fila.querySelector('.parte-role');
+                const credencial = fila.querySelector('.parte-credential');
+                const etiquetaTipo = fila.querySelector('.parte-type-label');
+                const etiquetaNombre = fila.querySelector('.parte-label');
+                const etiquetaRol = fila.querySelector('.parte-role-label');
+                const etiquetaCredencial = fila.querySelector('.parte-credential-label');
+                const botonQuitar = fila.querySelector('[data-remove-parte]');
+
+                tipo.id = `parteTipo${numero}`;
+                tipo.name = `partes[${index}][tipo]`;
+                etiquetaTipo.htmlFor = tipo.id;
+
+                nombre.id = `parteNombre${numero}`;
+                nombre.name = `partes[${index}][nombre]`;
+                etiquetaNombre.htmlFor = nombre.id;
+
+                rol.id = `parteRol${numero}`;
+                rol.name = `partes[${index}][rol]`;
+                etiquetaRol.htmlFor = rol.id;
+
+                credencial.id = `parteCredencial${numero}`;
+                credencial.name = `partes[${index}][credencial]`;
+                etiquetaCredencial.htmlFor = credencial.id;
+
+                botonQuitar.setAttribute('aria-label', `Quitar parte ${numero}`);
+                botonQuitar.disabled = filas.length === 1;
+            });
+        }
+
+        agregarParteButton.addEventListener('click', () => {
+            partesContainer.append(parteTemplate.content.cloneNode(true));
+            actualizarPartes();
+        });
+
+        partesContainer.addEventListener('click', (event) => {
+            const botonQuitar = event.target.closest('[data-remove-parte]');
+            if (!botonQuitar || partesContainer.querySelectorAll('.parte-row').length === 1) return;
+
+            botonQuitar.closest('.parte-row').remove();
+            actualizarPartes();
+        });
+
+        function actualizarPeritos() {
+            const filas = peritosContainer.querySelectorAll('.perito-row');
+
+            filas.forEach((fila, index) => {
+                const numero = index + 1;
+                const nombre = fila.querySelector('.perito-name');
+                const matricula = fila.querySelector('.perito-registration');
+                const etiquetaNombre = fila.querySelector('.perito-label');
+                const etiquetaMatricula = fila.querySelector('.matricula-label');
+                const botonQuitar = fila.querySelector('[data-remove-perito]');
+
+                nombre.id = `peritoNombre${numero}`;
+                nombre.name = `peritos[${index}][nombre]`;
+                etiquetaNombre.htmlFor = nombre.id;
+                etiquetaNombre.textContent = `Perito responsable ${numero} *`;
+
+                matricula.id = `matriculaPerito${numero}`;
+                matricula.name = `peritos[${index}][matricula]`;
+                etiquetaMatricula.htmlFor = matricula.id;
+
+                botonQuitar.setAttribute('aria-label', `Quitar perito ${numero}`);
+                botonQuitar.disabled = filas.length === 1;
+            });
+        }
+
+        agregarPeritoButton.addEventListener('click', () => {
+            peritosContainer.append(peritoTemplate.content.cloneNode(true));
+            actualizarPeritos();
+        });
+
+        peritosContainer.addEventListener('click', (event) => {
+            const botonQuitar = event.target.closest('[data-remove-perito]');
+            if (!botonQuitar || peritosContainer.querySelectorAll('.perito-row').length === 1) return;
+
+            botonQuitar.closest('.perito-row').remove();
+            actualizarPeritos();
+        });
+
+    actualizarPartes();
+        actualizarPeritos();
+    </script>
 </body>
 </html>
