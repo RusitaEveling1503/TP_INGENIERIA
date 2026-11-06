@@ -63,8 +63,10 @@
     </style>
 </head>
 <body>
+    <!-- Contenedor y estructura principal de la página -->
     <div class="container-fluid">
         <div class="row">
+            <!--Barra lateral de navegación-->
             <aside class="col-md-2 sidebar p-3">
                 <h4>JustiData</h4>
                 <hr>
@@ -75,6 +77,7 @@
             </aside>
 
             <main class="col-md-10 p-4">
+                <!-- Encabezado con el título del sistema y los datos del usuario -->
                 <header class="topbar">
                     <h1 class="h2 mb-0">Sistema de Gestión y Seguimiento de Pericias</h1>
                     <div class="user-box">
@@ -82,11 +85,15 @@
                     </div>
                 </header>
 
+                <!--Sección para el formulario de carga de un nuevo informe de pericia-->
                 <section class="card mb-4">
                     <div class="card-header">Formulario de Carga de Nuevo Informe</div>
                     <div class="card-body">
                         <form action="#" method="post" enctype="multipart/form-data">
+                            <!--Para los datos de identificación del expediente-->
                             <h5 class="mb-3">Identificación del expediente</h5>
+                            <!--Campos del formulario de carga organizados en una grilla, con número de expediente, 
+                            carátula del mismo, número de pericia, tipo de solicitante, partes involucradas, y demás-->
                             <div class="row g-3 mb-4">
                                 <div class="col-md-4">
                                     <label for="numeroExpediente" class="form-label">Número de expediente *</label>
@@ -268,6 +275,7 @@
                                 </div>
                             </div>
 
+                            <!--Contenedor de los botones de acción finales de informe: limpiar o registrar informe-->
                             <div class="btn-actions mt-4">
                                 <button type="reset" class="btn btn-secondary">Limpiar</button>
                                 <button type="submit" class="btn btn-success">Registrar Informe</button>
@@ -279,6 +287,7 @@
         </div>
     </div>
     <script>
+        // Referencias a los contenedores, plantillas y botones del formulario.
         const peritosContainer = document.getElementById('peritosContainer');
         const peritoTemplate = document.getElementById('peritoTemplate');
         const agregarPeritoButton = document.getElementById('agregarPerito');
@@ -286,6 +295,8 @@
         const parteTemplate = document.getElementById('parteTemplate');
         const agregarParteButton = document.getElementById('agregarParte');
 
+        //Recorre las partes involucradas y actualiza sus identificadores, nombres de campo 
+        //y etiquetas según su posición en el formulario. También evita que se elimine la última parte.
         function actualizarPartes() {
             const filas = partesContainer.querySelectorAll('.parte-row');
 
@@ -301,6 +312,7 @@
                 const etiquetaCredencial = fila.querySelector('.parte-credential-label');
                 const botonQuitar = fila.querySelector('[data-remove-parte]');
 
+                // Los índices en "name" permiten enviar las partes como una colección.
                 tipo.id = `parteTipo${numero}`;
                 tipo.name = `partes[${index}][tipo]`;
                 etiquetaTipo.htmlFor = tipo.id;
@@ -317,16 +329,20 @@
                 credencial.name = `partes[${index}][credencial]`;
                 etiquetaCredencial.htmlFor = credencial.id;
 
+                // Actualiza el nombre accesible del botón y desactiva el último.
                 botonQuitar.setAttribute('aria-label', `Quitar parte ${numero}`);
                 botonQuitar.disabled = filas.length === 1;
             });
         }
-
+        
+        // Agrega una nueva parte copiando el contenido de la plantilla HTML.
         agregarParteButton.addEventListener('click', () => {
             partesContainer.append(parteTemplate.content.cloneNode(true));
             actualizarPartes();
         });
 
+        // Maneja los clics en los botones "Quitar" de las partes.
+        // Se usa delegación de eventos para que funcione también con filas agregadas después.
         partesContainer.addEventListener('click', (event) => {
             const botonQuitar = event.target.closest('[data-remove-parte]');
             if (!botonQuitar || partesContainer.querySelectorAll('.parte-row').length === 1) return;
@@ -335,6 +351,8 @@
             actualizarPartes();
         });
 
+        //Recorre los peritos y actualiza sus identificadores, nombres de campo
+        //y etiquetas. También evita que se elimine el último perito.
         function actualizarPeritos() {
             const filas = peritosContainer.querySelectorAll('.perito-row');
 
@@ -355,16 +373,20 @@
                 matricula.name = `peritos[${index}][matricula]`;
                 etiquetaMatricula.htmlFor = matricula.id;
 
+                // Actualiza el nombre accesible del botón y desactiva el último.
                 botonQuitar.setAttribute('aria-label', `Quitar perito ${numero}`);
                 botonQuitar.disabled = filas.length === 1;
             });
         }
 
+        // Agrega un nuevo perito copiando el contenido de la plantilla HTML.
         agregarPeritoButton.addEventListener('click', () => {
             peritosContainer.append(peritoTemplate.content.cloneNode(true));
             actualizarPeritos();
         });
 
+        // Maneja los clics en los botones "Quitar" de los peritos.
+        // La delegación permite gestionar tanto la fila inicial como las nuevas.
         peritosContainer.addEventListener('click', (event) => {
             const botonQuitar = event.target.closest('[data-remove-perito]');
             if (!botonQuitar || peritosContainer.querySelectorAll('.perito-row').length === 1) return;
@@ -373,7 +395,8 @@
             actualizarPeritos();
         });
 
-    actualizarPartes();
+        //Inicializa los nombres, identificadores y botones de las filas exixtentes.
+        actualizarPartes();
         actualizarPeritos();
     </script>
 </body>
